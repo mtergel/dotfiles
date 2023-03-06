@@ -1,0 +1,114 @@
+env:
+  TERM: alacritty-direct
+
+shell:
+  program: /opt/homebrew/bin/fish
+  args:
+    - -l
+    - -c
+    - "tmux attach || tmux"
+
+window:
+  title: Terminal
+  dynamic_title: true
+  dynamic_padding: false
+  opacity: 0.95
+  decorations: transparent
+  padding:
+    x: 0
+    y: 25
+
+font:
+  normal:
+    family: JetBrainsMono Nerd Font
+    style: Regular
+  bold:
+    family: JetBrainsMono Nerd Font
+    style: Bold
+  italic:
+    family: JetBrainsMono Nerd Font
+    style: Italic
+  bold_italic:
+    family: JetBrainsMono Nerd Font
+    style: BoldItalic
+  size: 14.5
+
+draw_bold_text_with_bright_colors: false
+
+cursor:
+  style:
+    shape: Underline
+
+live_config_reload: true
+
+# The definition of color schemes.
+schemes:
+  everforest_dark_hard: &everforest_dark_hard
+    primary:
+      background: "#272e33"
+      foreground: "#d3c6aa"
+    normal:
+      black: "#414b50"
+      red: "#e67e80"
+      green: "#a7c080"
+      yellow: "#dbbc7f"
+      blue: "#7fbbb3"
+      magenta: "#d699b6"
+      cyan: "#83c092"
+      white: "#d3c6aa"
+    bright:
+      black: "#475258"
+      red: "#e67e80"
+      green: "#a7c080"
+      yellow: "#dbbc7f"
+      blue: "#7fbbb3"
+      magenta: "#d699b6"
+      cyan: "#83c092"
+      white: "#d3c6aa"
+  everforest_dark_medium: &everforest_dark_medium
+    primary:
+      background: "#2d353b"
+      foreground: "#d3c6aa"
+    normal:
+      black: "#475258"
+      red: "#e67e80"
+      green: "#a7c080"
+      yellow: "#dbbc7f"
+      blue: "#7fbbb3"
+      magenta: "#d699b6"
+      cyan: "#83c092"
+      white: "#d3c6aa"
+    bright:
+      black: "#475258"
+      red: "#e67e80"
+      green: "#a7c080"
+      yellow: "#dbbc7f"
+      blue: "#7fbbb3"
+      magenta: "#d699b6"
+      cyan: "#83c092"
+      white: "#d3c6aa"
+  everforest_dark_soft: &everforest_dark_soft
+    primary:
+      background: "#333c43"
+      foreground: "#d3c6aa"
+    normal:
+      black: "#4d5960"
+      red: "#e67e80"
+      green: "#a7c080"
+      yellow: "#dbbc7f"
+      blue: "#7fbbb3"
+      magenta: "#d699b6"
+      cyan: "#83c092"
+      white: "#d3c6aa"
+    bright:
+      black: "#4d5960"
+      red: "#e67e80"
+      green: "#a7c080"
+      yellow: "#dbbc7f"
+      blue: "#7fbbb3"
+      magenta: "#d699b6"
+      cyan: "#83c092"
+      white: "#d3c6aa"
+
+# Apply the color scheme.
+colors: *everforest_dark_hard
