@@ -11,12 +11,7 @@ shell:
 window:
   title: Terminal
   dynamic_title: true
-  dynamic_padding: false
   opacity: 0.95
-  decorations: transparent
-  padding:
-    x: 0
-    y: 25
 
 font:
   normal:

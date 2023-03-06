@@ -3,11 +3,9 @@ function ColorMyPencils(color)
 
 	-- everforest settings
 	vim.cmd([[
-	       let g:everforest_background = 'soft'
-	       let g:everforest_transparent_background = 2
-	       let g:everforest_spell_foreground = 'colored'
-	       let g:everforest_diagnostic_text_highlight = 1
-	       let g:everforest_diagnostic_virtual_text = 'colored'
+	    let g:everforest_background = 'hard'
+	    let g:everforest_transparent_background = 1
+        let g:everforest_better_performance = 1
 	]])
 
 	vim.cmd.colorscheme(color)

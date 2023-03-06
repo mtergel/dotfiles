@@ -70,7 +70,7 @@ local null_ls = require("null-ls")
 local null_opts = lsp.build_options("null-ls", {})
 
 null_ls.setup({
-    debug = true,
+	debug = true,
 	on_attach = function(client, bufnr)
 		null_opts.on_attach(client, bufnr)
 	end,
@@ -88,7 +88,13 @@ require("mason-null-ls").setup({
 })
 
 -- Required when `automatic_setup` is true
-require("mason-null-ls").setup_handlers()
+require("mason-null-ls").setup_handlers({
+	clang_format = function(source_name, methods)
+		null_ls.register(null_ls.builtins.formatting.clang_format.with({
+			extra_args = { "--style", "Google" },
+		}))
+	end,
+})
 
 vim.keymap.set("n", "<leader>fm", function()
 	vim.lsp.buf.format({

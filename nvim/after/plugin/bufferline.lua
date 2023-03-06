@@ -1,13 +1,8 @@
 require("bufferline").setup({
 	options = {
 		diagnostics = "nvim_lsp",
-		always_show_bufferline = true,
+		always_show_bufferline = false,
 		show_close_icon = false,
-		indicator = {
-			-- icon = " ✦",
-			style = "none",
-		},
-		-- separator_style = "padded_slant",
 		offsets = {
 			{ filetype = "NvimTree", text = " File Explorer", text_align = "left" },
 		},
