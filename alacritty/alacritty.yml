@@ -21,10 +21,6 @@ font:
 
 draw_bold_text_with_bright_colors: false
 
-cursor:
-  style:
-    shape: Underline
-
 live_config_reload: true
 
 # The definition of color schemes.
