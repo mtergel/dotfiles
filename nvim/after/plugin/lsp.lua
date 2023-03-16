@@ -59,6 +59,22 @@ lsp.on_attach(function(client, bufnr)
 	end, opts)
 end)
 
+local lspkind = require("lspkind")
+lsp.setup_nvim_cmp({
+	formatting = {
+		fields = { "abbr", "kind", "menu" },
+		format = lspkind.cmp_format({
+			mode = "symbol", -- show only symbol annotations
+			maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+			ellipsis_char = "...",
+			before = function(entry, vim_item)
+				vim_item.menu = " (" .. vim_item.kind .. ")"
+				return vim_item
+			end,
+		}),
+	},
+})
+
 lsp.setup()
 
 vim.diagnostic.config({
