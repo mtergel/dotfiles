@@ -3,6 +3,12 @@ return {
 		"sainnhe/everforest",
 		lazy = false,
 		priority = 1000,
+		config = function()
+			vim.cmd([[
+	               let g:everforest_background = 'hard'
+	               colorscheme everforest
+	           ]])
+		end,
 	},
 	{
 		"nvim-telescope/telescope.nvim",
@@ -55,6 +61,7 @@ return {
 	},
 	{
 		"akinsho/bufferline.nvim",
+		event = "VeryLazy",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 	},
 	{
@@ -81,7 +88,17 @@ return {
 			require("Comment").setup()
 		end,
 	},
-	{ "lukas-reineke/indent-blankline.nvim" },
+	{
+		"lukas-reineke/indent-blankline.nvim",
+		event = { "BufReadPost", "BufNewFile" },
+		opts = {
+			-- char = "▏",
+			char = "│",
+			filetype_exclude = { "help", "alpha", "dashboard", "neo-tree", "Trouble", "lazy" },
+			show_trailing_blankline_indent = false,
+			show_current_context = false,
+		},
+	},
 	{
 		"windwp/nvim-ts-autotag",
 		config = function()
@@ -90,5 +107,10 @@ return {
 	},
 	{
 		"stevearc/dressing.nvim",
+		lazy = true,
+		event = "VeryLazy",
 	},
+
+	-- icons
+	{ "nvim-tree/nvim-web-devicons", lazy = true },
 }
