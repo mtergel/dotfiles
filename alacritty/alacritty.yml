@@ -11,7 +11,7 @@ shell:
 window:
   title: Terminal
   dynamic_title: true
-# opacity: 1
+  # opacity: 0.90
 
 cursor:
   style:
@@ -23,7 +23,7 @@ font:
   normal:
     family: JetBrainsMono Nerd Font
     style: Regular
-  size: 16.5
+  size: 16
 
 draw_bold_text_with_bright_colors: false
 live_config_reload: true
