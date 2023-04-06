@@ -11,6 +11,9 @@ shell:
 window:
   title: Terminal
   dynamic_title: true
+  dimensions:
+    columns: 105
+    lines: 42
   # opacity: 0.90
 
 cursor:
