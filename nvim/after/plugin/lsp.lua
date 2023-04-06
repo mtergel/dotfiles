@@ -18,6 +18,8 @@ lsp.set_preferences({
 	},
 })
 
+local luasnip = require("luasnip")
+
 lsp.on_attach(function(client, bufnr)
 	local opts = { buffer = bufnr, remap = false }
 
@@ -57,6 +59,17 @@ lsp.on_attach(function(client, bufnr)
 	vim.keymap.set("i", "<C-h>", function()
 		vim.lsp.buf.signature_help()
 	end, opts)
+
+	vim.keymap.set("n", "gr", "<cmd>Telescope lsp_references<CR>", opts)
+	vim.keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts)
+
+	vim.keymap.set({ "i", "s" }, "<C-p>", function()
+		luasnip.jump(1)
+	end)
+
+	vim.keymap.set({ "i", "s" }, "<C-n>", function()
+		luasnip.jump(-1)
+	end)
 end)
 
 local lspkind = require("lspkind")

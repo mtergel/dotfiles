@@ -1,3 +1,5 @@
+vim.opt.title = true
+
 -- line numbers
 vim.opt.nu = true
 vim.opt.relativenumber = true
@@ -39,3 +41,9 @@ vim.opt.showmode = false
 
 -- mac systemclipboard
 vim.opt.clipboard:append({ "unnamedplus" })
+
+-- add asterisks in block comments
+vim.opt.formatoptions:append({ "r" })
+
+vim.opt.cursorline = true
+vim.opt.winblend = 0
