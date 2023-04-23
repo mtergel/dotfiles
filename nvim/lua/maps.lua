@@ -1,6 +1,6 @@
 local keymap = vim.keymap
 
--- delete
+-- Delete
 keymap.set("n", "x", '"_x')
 
 -- Select all
@@ -29,7 +29,7 @@ keymap.set("n", "<C-w><right>", "<C-w>>")
 keymap.set("n", "<C-w><up>", "<C-w>+")
 keymap.set("n", "<C-w><down>", "<C-w>-")
 
--- paste empty buffer
+-- Paste empty buffer
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
 -- Center when navigating
@@ -43,3 +43,13 @@ vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 vim.keymap.set("n", "Q", "<nop>")
+
+-- Format
+vim.keymap.set("n", "<leader>fm", function()
+	vim.lsp.buf.format({
+		bufnr = bufnr,
+		filter = function(client)
+			return client.name == "null-ls"
+		end,
+	})
+end, {})

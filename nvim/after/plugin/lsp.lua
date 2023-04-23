@@ -1,135 +1,95 @@
 local lsp = require("lsp-zero").preset({
-	name = "minimal",
-	set_lsp_keymaps = true,
-	manage_nvim_cmp = true,
-	suggest_lsp_servers = false,
-})
-
--- (Optional) Configure lua language server for neovim
-lsp.nvim_workspace()
-
-lsp.set_preferences({
-	suggest_lsp_servers = false,
-	sign_icons = {
-		error = "",
-		warn = "",
-		hint = "",
-		info = "",
+	manage_nvim_cmp = {
+		set_sources = "lsp",
+		set_basic_mappings = true,
+		set_extra_mappings = true,
+		use_luasnip = true,
+		set_format = true,
+		documentation_window = true,
 	},
 })
 
-local luasnip = require("luasnip")
-
 lsp.on_attach(function(client, bufnr)
-	local opts = { buffer = bufnr, remap = false }
+	lsp.default_keymaps({ buffer = bufnr })
 
-	vim.keymap.set("n", "gd", function()
-		vim.lsp.buf.definition()
-	end, opts)
-	vim.keymap.set("n", "gD", function()
-		vim.lsp.buf.declaration()
-	end, opts)
-	vim.keymap.set("n", "K", function()
-		vim.lsp.buf.hover()
-	end, opts)
-	vim.keymap.set("n", "<leader>D", function()
-		vim.lsp.buf.declaration()
-	end, opts)
-	vim.keymap.set("n", "<leader>vws", function()
-		vim.lsp.buf.workspace_symbol()
-	end, opts)
 	vim.keymap.set("n", "<leader>vd", function()
 		vim.diagnostic.open_float()
-	end, opts)
-	vim.keymap.set("n", "[d", function()
-		vim.diagnostic.goto_next()
-	end, opts)
-	vim.keymap.set("n", "]d", function()
-		vim.diagnostic.goto_prev()
-	end, opts)
+	end)
 	vim.keymap.set("n", "<leader>vca", function()
 		vim.lsp.buf.code_action()
-	end, opts)
-	vim.keymap.set("n", "<leader>vrr", function()
-		vim.lsp.buf.references()
-	end, opts)
+	end)
+	vim.keymap.set("n", "<leader>vrr", "<cmd>Telescope lsp_references")
+	vim.keymap.set("n", "<leader>vri", "<cmd>Telescope lsp_implementations")
 	vim.keymap.set("n", "<leader>vrn", function()
 		vim.lsp.buf.rename()
-	end, opts)
-	vim.keymap.set("i", "<C-h>", function()
-		vim.lsp.buf.signature_help()
-	end, opts)
-
-	vim.keymap.set("n", "gr", "<cmd>Telescope lsp_references<CR>", opts)
-	vim.keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts)
-
-	vim.keymap.set({ "i", "s" }, "<C-p>", function()
-		luasnip.jump(1)
-	end)
-
-	vim.keymap.set({ "i", "s" }, "<C-n>", function()
-		luasnip.jump(-1)
 	end)
 end)
 
-local lspkind = require("lspkind")
-lsp.setup_nvim_cmp({
-	formatting = {
-		fields = { "abbr", "kind", "menu" },
-		format = lspkind.cmp_format({
-			mode = "symbol", -- show only symbol annotations
-			maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
-			ellipsis_char = "...",
-			before = function(entry, vim_item)
-				vim_item.menu = " (" .. vim_item.kind .. ")"
-				return vim_item
-			end,
-		}),
-	},
+require("lspconfig").lua_ls.setup(lsp.nvim_lua_ls())
+
+lsp.set_sign_icons({
+	error = "✘",
+	warn = "▲",
+	hint = "⚑",
+	info = "»",
 })
 
 lsp.setup()
 
-vim.diagnostic.config({
-	virtual_text = true,
-})
+-- completion
+local cmp = require("cmp")
+local cmp_action = require("lsp-zero").cmp_action()
 
--- must load after lsp
-local null_ls = require("null-ls")
-local null_opts = lsp.build_options("null-ls", {})
+require("luasnip.loaders.from_vscode").lazy_load()
 
-null_ls.setup({
-	debug = true,
-	on_attach = function(client, bufnr)
-		null_opts.on_attach(client, bufnr)
-	end,
+cmp.setup({
 	sources = {
-		-- You can add tools not supported by mason.nvim
+		{ name = "nvim_lsp" },
+		{ name = "nvim_lua" },
+		{ name = "luasnip" },
+	},
+	window = {
+		completion = cmp.config.window.bordered(),
+		documentation = cmp.config.window.bordered(),
+	},
+	formatting = {
+		fields = { "abbr", "kind", "menu" },
+		format = require("lspkind").cmp_format({
+			mode = "symbol", -- show only symbol annotations
+			maxwidth = 50, -- prevent the popup from showing more than provided characters
+			ellipsis_char = "...", -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead
+		}),
+	},
+	mapping = {
+		-- `Enter` key to confirm completion
+		["<CR>"] = cmp.mapping.confirm({ select = false }),
+
+		-- Ctrl+Space to trigger completion menu
+		["<C-Space>"] = cmp.mapping.confirm(),
+
+		-- Navigate between snippet placeholder
+		["<C-f>"] = cmp_action.luasnip_jump_forward(),
+		["<C-b>"] = cmp_action.luasnip_jump_backward(),
 	},
 })
 
--- See mason-null-ls.nvim's documentation for more details:
--- https://github.com/jay-babu/mason-null-ls.nvim#setup
+-- formating
+local null_ls = require("null-ls")
+
+null_ls.setup({
+	sources = {
+		-- Here you can add tools not supported by mason.nvim
+	},
+})
+
 require("mason-null-ls").setup({
 	ensure_installed = nil,
-	automatic_installation = false, -- You can still set this to `true`
-	automatic_setup = true,
+	automatic_installation = false,
+	handlers = {
+		-- Here you can add functions to register sources.
+		-- See https://github.com/jay-babu/mason-null-ls.nvim#handlers-usage
+		--
+		-- If left empty, mason-null-ls will  use a "default handler"
+		-- to register all sources
+	},
 })
-
--- Required when `automatic_setup` is true
-require("mason-null-ls").setup_handlers({
-	clang_format = function(source_name, methods)
-		null_ls.register(null_ls.builtins.formatting.clang_format.with({
-			extra_args = { "--style", "Google" },
-		}))
-	end,
-})
-
-vim.keymap.set("n", "<leader>fm", function()
-	vim.lsp.buf.format({
-		bufnr = bufnr,
-		filter = function(client)
-			return client.name == "null-ls"
-		end,
-	})
-end, {})
