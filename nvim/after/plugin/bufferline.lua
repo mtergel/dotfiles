@@ -9,6 +9,6 @@ require("bufferline").setup({
 	},
 })
 
-vim.keymap.set("n", "<leader>x", "<Cmd>bd<CR>", {})
+vim.keymap.set("n", "<leader>x", "<Cmd>bp|bd #<CR>", {})
 vim.keymap.set("n", "<Tab>", "<Cmd>BufferLineCycleNext<CR>", {})
 vim.keymap.set("n", "<S-Tab>", "<Cmd>BufferLineCyclePrev<CR>", {})
