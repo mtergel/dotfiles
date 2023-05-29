@@ -14,7 +14,6 @@ window:
   dimensions:
     columns: 105
     lines: 42
-  opacity: 0.90
 
 cursor:
   style:
@@ -29,69 +28,38 @@ font:
   size: 16
 
 draw_bold_text_with_bright_colors: false
-live_config_reload:
-  true
+live_config_reload: true
 
-  # Colors (Kanagawa)
+# Colors (Gruvbox dark)
 colors:
   # Default colors
   primary:
-    background: "0x1f1f28"
-    foreground: "0xdcd7ba"
+    background: "0x1d2021"
+    foreground: "0xd5c4a1"
+
+  # Colors the cursor will use if `custom_cursor_colors` is true
+  cursor:
+    text: "0x1d2021"
+    cursor: "0xd5c4a1"
 
   # Normal colors
   normal:
-    black: "0x090618"
-    red: "0xc34043"
-    green: "0x76946a"
-    yellow: "0xc0a36e"
-    blue: "0x7e9cd8"
-    magenta: "0x957fb8"
-    cyan: "0x6a9589"
-    white: "0xc8c093"
+    black: "0x1d2021"
+    red: "0xfb4934"
+    green: "0xb8bb26"
+    yellow: "0xfabd2f"
+    blue: "0x83a598"
+    magenta: "0xd3869b"
+    cyan: "0x8ec07c"
+    white: "0xd5c4a1"
 
   # Bright colors
   bright:
-    black: "0x727169"
-    red: "0xe82424"
-    green: "0x98bb6c"
-    yellow: "0xe6c384"
-    blue: "0x7fb4ca"
-    magenta: "0x938aa9"
-    cyan: "0x7aa89f"
-    white: "0xdcd7ba"
-  selection:
-    background: "0x2d4f67"
-    foreground: "0xc8c093"
-
-  indexed_colors:
-    - { index: 16, color: "0xffa066" }
-    - { index: 17, color: "0xff5d62" }
-
-# # The definition of color schemes.
-# schemes:
-#   everforest_dark_hard: &everforest_dark_hard
-#     primary:
-#       background: "#272e33"
-#       foreground: "#d3c6aa"
-#     normal:
-#       black: "#414b50"
-#       red: "#e67e80"
-#       green: "#a7c080"
-#       yellow: "#dbbc7f"
-#       blue: "#7fbbb3"
-#       magenta: "#d699b6"
-#       cyan: "#83c092"
-#       white: "#d3c6aa"
-#     bright:
-#       black: "#475258"
-#       red: "#e67e80"
-#       green: "#a7c080"
-#       yellow: "#dbbc7f"
-#       blue: "#7fbbb3"
-#       magenta: "#d699b6"
-#       cyan: "#83c092"
-#       white: "#d3c6aa"
-#
-# # Apply the color scheme.
-# colors: *everforest_dark_hard
+    black: "0x665c54"
+    red: "0xfe8019"
+    green: "0x3c3836"
+    yellow: "0x504945"
+    blue: "0xbdae93"
+    magenta: "0xebdbb2"
+    cyan: "0xd65d0e"
+    white: "0xfbf1c7"

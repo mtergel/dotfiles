@@ -1,38 +1,87 @@
 return {
+	-- {
+	-- 	"rebelot/kanagawa.nvim",
+	-- 	lazy = false,
+	-- 	priority = 1000,
+	-- 	config = function()
+	-- 		require("kanagawa").setup({
+	-- 			compile = false,
+	-- 			transparent = true,
+	-- 			colors = {
+	-- 				theme = {
+	-- 					all = {
+	-- 						ui = {
+	-- 							bg_gutter = "none",
+	-- 						},
+	-- 					},
+	-- 				},
+	-- 			},
+	-- 			theme = "wave",
+	-- 		})
+	--
+	-- 		vim.cmd("colorscheme kanagawa")
+	-- 	end,
+	-- },
+	-- {
+	-- 	"rose-pine/neovim",
+	-- 	name = "rose-pine",
+	-- 	lazy = "VeryLazy",
+	-- 	config = function()
+	-- 		require("rose-pine").setup({
+	-- 			disable_background = true,
+	-- 			disable_float_background = true,
+	-- 		})
+	--
+	-- 		-- vim.cmd("colorscheme rose-pine")
+	-- 		vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+	-- 		vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+	-- 	end,
+	-- },
+	-- {
+	-- 	"sainnhe/everforest",
+	-- 	lazy = false,
+	-- 	priority = 1000,
+	-- 	config = function()
+	-- 		vim.cmd([[
+	--             let g:everforest_background = 'hard'
+	--             let g:everforest_transparent_background = '2'
+	--             let g:everforest_diagnostic_text_highlight = '1'
+	--             let g:everforest_diagnostic_virtual_text = 'colored'
+	--             let g:everforest_better_performance = '1'
+	--         ]])
+	-- 		vim.cmd("colorscheme everforest")
+	-- 	end,
+	-- },
 	{
-		"rebelot/kanagawa.nvim",
+		"ellisonleao/gruvbox.nvim",
+		-- lazy = "VeryLazy",
 		lazy = false,
 		priority = 1000,
 		config = function()
-			require("kanagawa").setup({
-				compile = false,
-				transparent = true,
-				colors = {
-					theme = {
-						all = {
-							ui = {
-								bg_gutter = "none",
-							},
-						},
-					},
+			require("gruvbox").setup({
+				undercurl = true,
+				underline = true,
+				bold = true,
+				italic = {
+					strings = true,
+					comments = true,
+					operators = false,
+					folds = true,
 				},
-				theme = "wave",
+				strikethrough = true,
+				invert_selection = false,
+				invert_signs = false,
+				invert_tabline = false,
+				invert_intend_guides = false,
+				inverse = true, -- invert background for search, diffs, statuslines and errors
+				contrast = "hard", -- can be "hard", "soft" or empty string
+				palette_overrides = {},
+				overrides = {},
+				dim_inactive = false,
+				transparent_mode = true,
 			})
 
-			vim.cmd("colorscheme kanagawa")
-		end,
-	},
-	{
-		"sainnhe/everforest",
-		lazy = true,
-		config = function()
-			vim.cmd([[
-	            let g:everforest_background = 'hard'
-	            let g:everforest_transparent_background = '2'
-	            let g:everforest_diagnostic_text_highlight = '1'
-	            let g:everforest_diagnostic_virtual_text = 'colored'
-	            let g:everforest_better_performance = '1'
-	        ]])
+			vim.cmd([[colorscheme gruvbox]])
 		end,
 	},
 	{
@@ -43,12 +92,23 @@ return {
 	{
 		"nvim-treesitter/nvim-treesitter",
 	},
+	-- {
+	-- 	"nvim-tree/nvim-tree.lua",
+	-- 	config = function()
+	-- 		require("nvim-tree").setup()
+	-- 	end,
+	-- 	dependencies = { "nvim-tree/nvim-web-devicons" },
+	-- },
 	{
-		"nvim-tree/nvim-tree.lua",
+		"nvim-neo-tree/neo-tree.nvim",
+		branch = "v2.x",
+		dependencies = {
+			{ "nvim-lua/plenary.nvim", "nvim-tree/nvim-web-devicons", "MunifTanjim/nui.nvim" },
+		},
 		config = function()
-			require("nvim-tree").setup()
+			-- Unless you are still migrating, remove the deprecated commands from v1.x
+			vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
 		end,
-		dependencies = { "nvim-tree/nvim-web-devicons" },
 	},
 	{
 		"jose-elias-alvarez/null-ls.nvim",
@@ -145,6 +205,15 @@ return {
 		event = "VeryLazy",
 		config = function()
 			require("nvim-surround").setup({
+				-- Configuration here, or leave empty to use defaults
+			})
+		end,
+	},
+	{
+		"folke/zen-mode.nvim",
+		event = "VeryLazy",
+		config = function()
+			require("zen-mode").setup({
 				-- Configuration here, or leave empty to use defaults
 			})
 		end,
