@@ -43,7 +43,7 @@ require("neo-tree").setup({
 			["y"] = "copy_to_clipboard",
 			["x"] = "cut_to_clipboard",
 			["p"] = "paste_from_clipboard",
-			["c"] = "copy", -- takes text input for destination, also accepts the optional config.show_path option like "add":
+			["c"] = "copy", -- takes text input for destination, also accepts the optional config.show_path option like "add":tree
 			-- ["c"] = {
 			--  "copy",
 			--  config = {
@@ -60,6 +60,10 @@ require("neo-tree").setup({
 		},
 	},
 	default_component_configs = {
+		icon = {
+			folder_empty = "󰜌",
+			folder_empty_open = "󰜌",
+		},
 		git_status = {
 			symbols = {
 				-- Change type
