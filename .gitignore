@@ -5,3 +5,5 @@ zsh
 yarn
 .DS_Store
 iterm2
+flutter
+nvim/lazy-lock.json

@@ -133,7 +133,7 @@ require("neo-tree").setup({
 	},
 })
 
-vim.keymap.set("n", "<C-n>", "<cmd> Neotree toggle left <CR>", {})
+vim.keymap.set("n", "<C-n>", "<cmd> NeoTreeFloat<CR>", {})
 
 -- require("nvim-tree").setup({
 -- 	view = {
