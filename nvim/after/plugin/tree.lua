@@ -73,7 +73,7 @@ require("neo-tree").setup({
 				renamed = "󰁕",
 				-- Status type
 				untracked = "",
-				ignored = "",
+				ignored = "",
 				unstaged = "󰄱",
 				staged = "",
 				conflict = "",
@@ -134,15 +134,3 @@ require("neo-tree").setup({
 })
 
 vim.keymap.set("n", "<C-n>", "<cmd> NeoTreeFloat<CR>", {})
-
--- require("nvim-tree").setup({
--- 	view = {
--- 		relativenumber = true,
--- 	},
--- 	git = {
--- 		ignore = false,
--- 	},
--- })
---
--- vim.keymap.set("n", "<C-n>", "<cmd> NvimTreeToggle <CR>", {})
--- vim.keymap.set("n", "<leader>e", "<cmd> NvimTreeFindFile <CR>", {})

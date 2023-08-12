@@ -1,88 +1,8 @@
 return {
-	-- {
-	-- 	"rebelot/kanagawa.nvim",
-	-- 	lazy = false,
-	-- 	priority = 1000,
-	-- 	config = function()
-	-- 		require("kanagawa").setup({
-	-- 			compile = false,
-	-- 			transparent = true,
-	-- 			colors = {
-	-- 				theme = {
-	-- 					all = {
-	-- 						ui = {
-	-- 							bg_gutter = "none",
-	-- 						},
-	-- 					},
-	-- 				},
-	-- 			},
-	-- 			theme = "wave",
-	-- 		})
-	--
-	-- 		vim.cmd("colorscheme kanagawa")
-	-- 	end,
-	-- },
-	-- {
-	-- 	"rose-pine/neovim",
-	-- 	name = "rose-pine",
-	-- 	lazy = "VeryLazy",
-	-- 	config = function()
-	-- 		require("rose-pine").setup({
-	-- 			disable_background = true,
-	-- 			disable_float_background = true,
-	-- 		})
-	--
-	-- 		-- vim.cmd("colorscheme rose-pine")
-	-- 		vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-	-- 		vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
-	-- 	end,
-	-- },
-	-- {
-	-- 	"sainnhe/everforest",
-	-- 	lazy = false,
-	-- 	priority = 1000,
-	-- 	config = function()
-	-- 		vim.cmd([[
-	--             let g:everforest_background = 'hard'
-	--             let g:everforest_transparent_background = '2'
-	--             let g:everforest_diagnostic_text_highlight = '1'
-	--             let g:everforest_diagnostic_virtual_text = 'colored'
-	--             let g:everforest_better_performance = '1'
-	--         ]])
-	-- 		vim.cmd("colorscheme everforest")
-	-- 	end,
-	-- },
 	{
 		"ellisonleao/gruvbox.nvim",
-		-- lazy = "VeryLazy",
 		lazy = false,
 		priority = 1000,
-		config = function()
-			require("gruvbox").setup({
-				undercurl = true,
-				underline = true,
-				bold = true,
-				italic = {
-					strings = true,
-					comments = true,
-					operators = false,
-					folds = true,
-				},
-				strikethrough = true,
-				invert_selection = false,
-				invert_signs = false,
-				invert_tabline = false,
-				invert_intend_guides = false,
-				inverse = true, -- invert background for search, diffs, statuslines and errors
-				contrast = "hard", -- can be "hard", "soft" or empty string
-				palette_overrides = {},
-				overrides = {},
-				dim_inactive = false,
-				transparent_mode = true,
-			})
-
-			vim.cmd([[colorscheme gruvbox]])
-		end,
 	},
 	{
 		"nvim-telescope/telescope.nvim",
@@ -92,13 +12,6 @@ return {
 	{
 		"nvim-treesitter/nvim-treesitter",
 	},
-	-- {
-	-- 	"nvim-tree/nvim-tree.lua",
-	-- 	config = function()
-	-- 		require("nvim-tree").setup()
-	-- 	end,
-	-- 	dependencies = { "nvim-tree/nvim-web-devicons" },
-	-- },
 	{
 		"nvim-neo-tree/neo-tree.nvim",
 		branch = "v2.x",
@@ -219,13 +132,4 @@ return {
 		end,
 	},
 	{ "nvim-tree/nvim-web-devicons", lazy = true },
-	{
-		"akinsho/flutter-tools.nvim",
-		lazy = false,
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"stevearc/dressing.nvim", -- optional for vim.ui.select
-		},
-		config = true,
-	},
 }
