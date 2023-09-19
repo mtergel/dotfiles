@@ -132,4 +132,7 @@ return {
 		end,
 	},
 	{ "nvim-tree/nvim-web-devicons", lazy = true },
+	{
+		"jose-elias-alvarez/typescript.nvim",
+	},
 }

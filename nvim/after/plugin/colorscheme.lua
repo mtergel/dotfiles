@@ -13,11 +13,11 @@ icons.set_icon(new_icons)
 require("gruvbox").setup({
 	contrast = "hard", -- can be "hard", "soft" or empty string
 	transparent_mode = true,
+	bold = false,
 	overrides = {
 		TelescopeResultsBorder = { fg = GRAY, bg = "NONE" },
 		TelescopePromptBorder = { fg = GRAY, bg = "NONE" },
 		TelescopePreviewBorder = { fg = GRAY, bg = "NONE" },
-		BufferLineSeparator = { fg = GRAY },
 	},
 })
 
