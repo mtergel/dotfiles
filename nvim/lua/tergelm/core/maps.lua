@@ -44,13 +44,3 @@ vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 vim.keymap.set("n", "Q", "<nop>")
-
--- Format
-vim.keymap.set("n", "<leader>fm", function()
-	vim.lsp.buf.format({
-		bufnr = bufnr,
-		filter = function(client)
-			return client.name == "null-ls"
-		end,
-	})
-end, {})
