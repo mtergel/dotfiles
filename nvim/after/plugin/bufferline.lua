@@ -1,7 +1,7 @@
 require("bufferline").setup({
 	options = {
 		diagnostics = "nvim_lsp",
-		always_show_bufferline = false,
+		always_show_bufferline = true,
 		show_close_icon = false,
 		offsets = {
 			{

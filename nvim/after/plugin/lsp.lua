@@ -34,6 +34,26 @@ lsp.set_sign_icons({
 	info = "»",
 })
 
+require("mason-lspconfig").setup({
+	handlers = {
+		lsp.default_setup,
+		tailwindcss = function()
+			require("lspconfig").tailwindcss.setup({
+				settings = {
+					tailwindCSS = {
+						experimental = {
+							classRegex = {
+								{ "cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]" },
+								{ "cx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)" },
+							},
+						},
+					},
+				},
+			})
+		end,
+	},
+})
+
 lsp.setup()
 
 -- completion
@@ -75,38 +95,38 @@ cmp.setup({
 
 -- ts inlay hints
 require("typescript").setup({
-  server = {
-    on_attach = function(client, bufnr)
-      -- your other on_attach stuff here if you have any
-      -- ...
-      vim.lsp.buf.inlay_hint(bufnr, true)
-    end,
-    settings={
-      -- specify some or all of the following settings if you want to adjust the default behavior
-      javascript = {
-        inlayHints = {
-          includeInlayEnumMemberValueHints = true,
-          includeInlayFunctionLikeReturnTypeHints = true,
-          includeInlayFunctionParameterTypeHints = true,
-          includeInlayParameterNameHints = "all", -- 'none' | 'literals' | 'all';
-          includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-          includeInlayPropertyDeclarationTypeHints = true,
-          includeInlayVariableTypeHints = true,
-        },
-      },
-      typescript = {
-        inlayHints = {
-          includeInlayEnumMemberValueHints = true,
-          includeInlayFunctionLikeReturnTypeHints = true,
-          includeInlayFunctionParameterTypeHints = true,
-          includeInlayParameterNameHints = "all", -- 'none' | 'literals' | 'all';
-          includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-          includeInlayPropertyDeclarationTypeHints = true,
-          includeInlayVariableTypeHints = true,
-        },
-      },
-    },
-  },
+	server = {
+		on_attach = function(client, bufnr)
+			-- your other on_attach stuff here if you have any
+			-- ...
+			vim.lsp.buf.inlay_hint(bufnr, true)
+		end,
+		settings = {
+			-- specify some or all of the following settings if you want to adjust the default behavior
+			javascript = {
+				inlayHints = {
+					includeInlayEnumMemberValueHints = true,
+					includeInlayFunctionLikeReturnTypeHints = true,
+					includeInlayFunctionParameterTypeHints = true,
+					includeInlayParameterNameHints = "all", -- 'none' | 'literals' | 'all';
+					includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+					includeInlayPropertyDeclarationTypeHints = true,
+					includeInlayVariableTypeHints = true,
+				},
+			},
+			typescript = {
+				inlayHints = {
+					includeInlayEnumMemberValueHints = true,
+					includeInlayFunctionLikeReturnTypeHints = true,
+					includeInlayFunctionParameterTypeHints = true,
+					includeInlayParameterNameHints = "all", -- 'none' | 'literals' | 'all';
+					includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+					includeInlayPropertyDeclarationTypeHints = true,
+					includeInlayVariableTypeHints = true,
+				},
+			},
+		},
+	},
 })
 
 -- formating
