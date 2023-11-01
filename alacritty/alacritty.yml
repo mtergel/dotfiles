@@ -11,6 +11,7 @@ shell:
 window:
   title: Terminal
   dynamic_title: true
+  opacity: 0.9
   dimensions:
     columns: 105
     lines: 42
@@ -71,4 +72,3 @@ colors:
     end:
       foreground: "#6e6a86"
       background: "#1f1d2e"
-
