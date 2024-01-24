@@ -75,7 +75,7 @@ program = "/opt/homebrew/bin/fish"
 [window]
 dynamic_title = true
 decorations = "Buttonless"
-opacity = 0.8
+opacity = 0.6
 blur = true
 
 [window.dimensions]

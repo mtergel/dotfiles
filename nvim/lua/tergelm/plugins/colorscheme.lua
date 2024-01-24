@@ -4,9 +4,10 @@ return {
 	priority = 1000,
 	config = function()
 		require("rose-pine").setup({
-			disable_float_background = true,
-			disable_background = true,
-			dim_nc_background = false,
+			extend_background_behind_borders = true,
+			styles = {
+				transparency = true,
+			},
 			highlight_groups = {
 				TelescopeNormal = { bg = "none" },
 				TelescopeBorder = { bg = "none" },
