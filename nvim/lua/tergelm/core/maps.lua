@@ -8,10 +8,9 @@ keymap.set("n", "<C-a>", "gg<S-v>G")
 
 -- Save
 keymap.set("n", "<C-s>", ":w<CR>")
-keymap.set("i", "jj", "<Esc>")
 
--- New tab
-keymap.set("n", "te", ":tabedit")
+-- Escape
+keymap.set("i", "jj", "<Esc>")
 
 -- Split window
 keymap.set("n", "ss", ":split<Return><C-w>w")

@@ -62,7 +62,7 @@ shape = "Block"
 TERM = "alacritty-direct"
 
 [font]
-size = 16
+size = 17
 
 [font.normal]
 family = "JetBrainsMono Nerd Font Propo"
@@ -75,7 +75,7 @@ program = "/opt/homebrew/bin/fish"
 [window]
 dynamic_title = true
 decorations = "Buttonless"
-opacity = 0.7
+opacity = 0.4
 blur = true
 
 [window.dimensions]
