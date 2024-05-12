@@ -1,4 +1,7 @@
-fish
+fish/completions
+fish/conf.d
+fish/functions
+fish/fish_variables
 tmux/plugins
 spicetify
 zsh
