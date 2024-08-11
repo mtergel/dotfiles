@@ -10,6 +10,14 @@ set -gx PATH "$PNPM_HOME" $PATH
 # Use the trash can
 alias rm="echo Use 'trash', or the full path i.e. '/bin/rm'"
 
+# Javac
+set -Ux ANDROID_HOME /Users/tergelm/Library/Android/sdk
+# set -U fish_user_paths $ANDROID_HOME/emulator $fish_user_paths
+# set -U fish_user_paths $ANDROID_HOME/tools $fish_user_paths
+# set -U fish_user_paths $ANDROID_HOME/tools-bin $fish_user_paths
+# set -U fish_user_paths $ANDROID_HOME/platform-tools $fish_user_paths
+set -Ux JAVA_HOME /Applications/Android Studio.app/Contents/jbr/Contents/Home/
+
 # Kanagawa Fish shell theme
 # A template was taken and modified from Tokyonight:
 # https://github.com/folke/tokyonight.nvim/blob/main/extras/fish_tokyonight_night.fish

@@ -32,7 +32,6 @@ return {
 				"cssls",
 				"tailwindcss",
 				"lua_ls",
-                "vale"
 			},
 			-- auto-install configured servers (with lspconfig)
 			automatic_installation = true, -- not the same as ensure_installed
@@ -42,6 +41,7 @@ return {
 			ensure_installed = {
 				"prettierd", -- prettier formatter
 				"stylua", -- lua formatter
+				"vale", -- md, text formatter
 				-- "eslint_d", -- js linter
 			},
 		})
