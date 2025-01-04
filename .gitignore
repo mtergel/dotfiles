@@ -1,14 +1,2 @@
-fish/completions
-fish/conf.d
-fish/functions
-fish/fish_variables
-tmux/plugins
-spicetify
-zsh
-yarn
 .DS_Store
-iterm2
-flutter
 nvim/lazy-lock.json
-configstore
-linearmouse

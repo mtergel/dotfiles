@@ -1,2 +1,2 @@
-require("tergelm.core")
-require("tergelm.lazy")
+require("config.core")
+require("config.lazy")
