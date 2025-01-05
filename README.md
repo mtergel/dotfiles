@@ -1,6 +1,9 @@
 # Dotfiles
-This repository contains my personal dotfiles with configuration and plugins. It aim's to be minimal.
+This repository contains my personal dotfiles with configuration and plugins.
 ![Screenshot](assets/screenshot.png)
+
+Using the default Terminal app  
+Font is ZedMono
 
 ## Installation
 
