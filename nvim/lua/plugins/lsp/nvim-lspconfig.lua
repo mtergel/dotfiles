@@ -1,5 +1,6 @@
 return {
     "neovim/nvim-lspconfig",
+    dependencies = { 'saghen/blink.cmp' },
     event = { "BufReadPre", "BufNewFile" },
     opts = function()
         local ret = {
@@ -32,17 +33,9 @@ return {
         local servers = opts.servers
 
         -- Function to setup each server
-        local function setup(server)
-            local server_opts = vim.tbl_deep_extend("force", {
-                capabilities = vim.deepcopy(capabilities),
-            }, servers[server] or {})
-
-            if server_opts.enabled == false then
-                return
-            end
-
+        local function setup(server, server_opts)
             if opts.setup[server] then
-                if opts.setup[server](server, server_opts) then
+                if opts.setup[server](server) then
                     return
                 end
             elseif opts.setup["*"] then
@@ -55,8 +48,9 @@ return {
         end
 
         -- Iterate over servers and setup each one
-        for server in pairs(servers) do
-            setup(server)
+        for server, config in pairs(servers) do
+            config.capabilities = require('blink.cmp').get_lsp_capabilities(config.capabilities)
+            setup(server, config)
         end
     end,
 }
