@@ -1,6 +1,5 @@
 return {
     "nvim-lualine/lualine.nvim",
-    event = "VeryLazy",
     init = function()
         vim.g.lualine_laststatus = vim.o.laststatus
         if vim.fn.argc(-1) > 0 then
@@ -14,8 +13,10 @@ return {
     opts = {
         options = {
             icons_enabled = false,
+            globalstatus = true,
             component_separators = { left = '', right = '' },
             section_separators = { left = '', right = '' },
+            disabled_filetypes = { statusline = { 'netrw', 'lazy', 'mason' } },
         },
         sections = {
             lualine_a = { 'mode' },

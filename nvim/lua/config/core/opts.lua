@@ -8,7 +8,9 @@ vim.opt.title = true
 -- vim.opt.termguicolors = true
 vim.opt.colorcolumn = "80"
 
+-- main
 vim.opt.updatetime = 50
+vim.opt.signcolumn = "yes:1"
 
 -- line number
 vim.wo.nu = true
