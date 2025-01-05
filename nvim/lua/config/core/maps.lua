@@ -6,6 +6,9 @@ keymap.set("i", "jj", "<Esc>")
 -- File explorer
 keymap.set("n", "<leader>e", vim.cmd.Ex)
 
+-- Select all
+keymap.set("n", "<C-a>", "gg<S-v>G")
+
 -- Move select
 keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 keymap.set("v", "K", ":m '<-2<CR>gv=gv")

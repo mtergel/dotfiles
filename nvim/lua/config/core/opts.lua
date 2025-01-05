@@ -5,8 +5,9 @@ vim.cmd "colorscheme retrobox"
 vim.opt.title = true
 
 -- colors
--- vim.opt.termguicolors = true
+vim.opt.termguicolors = true
 vim.opt.colorcolumn = "80"
+vim.opt.cursorline = true
 
 -- main
 vim.opt.updatetime = 50
