@@ -30,6 +30,9 @@ return {
 
             keymap_opts.desc = "Smart rename"
             keymap.set("n", "<leader>rn", vim.lsp.buf.rename, keymap_opts)
+
+            keymap_opts.desc = "See line diagnostics"
+            keymap.set("n", "g?", "<cmd>lua vim.diagnostic.open_float(0)<cr>", keymap_opts)
         end
 
         local ret = {
@@ -50,6 +53,9 @@ return {
                 lua_ls = {
                 },
                 rust_analyzer = {
+                    refreshSupport = {
+                        refreshSupport = false,
+                    }
                 },
                 ts_ls = {
                 },
