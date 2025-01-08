@@ -90,7 +90,6 @@ return {
 
         -- Iterate over servers and setup each one
         for server, config in pairs(servers) do
-            config.capabilities = require('blink.cmp').get_lsp_capabilities(config.capabilities)
             config.on_attach = opts.on_attach
             setup(server, config)
         end
