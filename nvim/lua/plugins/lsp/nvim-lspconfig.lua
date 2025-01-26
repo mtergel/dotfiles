@@ -60,6 +60,15 @@ return {
                 ts_ls = {
                 },
                 tailwindcss = {
+                    tailwindCSS = {
+                        experimental = {
+                            classRegex = {
+                                { "cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]" },
+                            },
+                        },
+                    },
+                },
+                ruby_lsp = {
                 },
             },
             setup = {
