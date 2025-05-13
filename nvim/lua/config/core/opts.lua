@@ -24,6 +24,7 @@ vim.opt.softtabstop = 4
 vim.opt.expandtab = true
 
 -- indent
+vim.opt.breakindent = true
 vim.opt.smartindent = true
 vim.opt.wrap = false
 
@@ -39,3 +40,7 @@ vim.opt.incsearch = true
 
 -- scroll
 vim.opt.scrolloff = 8
+
+-- list
+vim.opt.list = true
+vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
